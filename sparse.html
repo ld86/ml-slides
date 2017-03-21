@@ -14158,6 +14158,32 @@ $$\text{progressive error} = \frac{e_1 + e_2 + ... + e_s}{s}$$<p>$e_i$ — loss 
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1050;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1080;&#1079;&#1085;&#1072;&#1082;&#1080;">&#1050;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077; &#1087;&#1088;&#1080;&#1079;&#1085;&#1072;&#1082;&#1080;<a class="anchor-link" href="#&#1050;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1080;&#1079;&#1085;&#1072;&#1082;&#1080;">&#182;</a></h2><ul>
+<li><code>-q ab</code> - создаёт квадратичные признаки, перемножая все признаки из областей видимости, названия которых начинаются на букву <strong>a</strong> и на букву <strong>b</strong></li>
+<li><code>--ignore a</code> — игнорирует все признаки из области видимости, название которой начинается на букву <strong>a</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1056;&#1077;&#1078;&#1080;&#1084;-&#1076;&#1077;&#1084;&#1086;&#1085;&#1072;">&#1056;&#1077;&#1078;&#1080;&#1084; &#1076;&#1077;&#1084;&#1086;&#1085;&#1072;<a class="anchor-link" href="#&#1056;&#1077;&#1078;&#1080;&#1084;-&#1076;&#1077;&#1084;&#1086;&#1085;&#1072;">&#182;</a></h2><ul>
+<li><code>--daemon</code> — запускает <strong>vw</strong> в режиме сервиса на порту, который можно задать с помощью <code>--port</code></li>
+<li>Позволяет обучать модель и/или применять модель по сети</li>
+</ul>
+
+</div>
+</div>
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -14243,7 +14269,7 @@ $$\text{progressive error} = \frac{e_1 + e_2 + ... + e_s}{s}$$<p>$e_i$ — loss 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[160]:</div>
+<div class="prompt input_prompt">In&nbsp;[184]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>vw -d win_vs_lin.train.vw -f model.vw --loss_function logistic  --passes <span class="m">100</span> -c -k <span class="m">2</span>&gt; train.log
@@ -14281,10 +14307,10 @@ $$\text{progressive error} = \frac{e_1 + e_2 + ... + e_s}{s}$$<p>$e_i$ — loss 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[142]:</div>
+<div class="prompt input_prompt">In&nbsp;[186]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>head -n15 train.log
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>head -n20 train.log
 </pre></div>
 
 </div>
@@ -14305,8 +14331,8 @@ learning rate = 0.5
 initial_t = 0
 power_t = 0.5
 decay_learning_rate = 1
-using cache_file = win_vs_lin.train.vw.cache
-ignoring text input in favor of cache input
+creating cache_file = win_vs_lin.train.vw.cache
+Reading datafile = win_vs_lin.train.vw
 num sources = 1
 average  since         example        example  current  current  current
 loss     last          counter         weight    label  predict features
@@ -14314,6 +14340,11 @@ loss     last          counter         weight    label  predict features
 0.632252 0.571357            2            2.0  -1.0000  -0.2605       28
 0.652016 0.671781            4            4.0  -1.0000  -1.6879      135
 0.882366 1.112717            8            8.0   1.0000   0.0338       19
+0.848898 0.815429           16           16.0  -1.0000  -0.5651       69
+0.886803 0.924707           32           32.0   1.0000  -0.3310      161
+0.793671 0.700539           64           64.0   1.0000   1.3198      197
+0.721078 0.648484          128          128.0   1.0000  -0.5368       16
+0.634201 0.547324          256          256.0   1.0000   2.3615      208
 </pre>
 </div>
 </div>
@@ -14333,7 +14364,7 @@ loss     last          counter         weight    label  predict features
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[161]:</div>
+<div class="prompt input_prompt">In&nbsp;[187]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>vw -d win_vs_lin.test.vw -i model.vw -t -p output.csv --quiet
@@ -14390,7 +14421,7 @@ loss     last          counter         weight    label  predict features
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[162]:</div>
+<div class="prompt input_prompt">In&nbsp;[188]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">y_hat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;output.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
@@ -14406,7 +14437,7 @@ loss     last          counter         weight    label  predict features
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[162]:</div>
+<div class="prompt output_prompt">Out[188]:</div>
 
 
 
