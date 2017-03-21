@@ -13331,7 +13331,7 @@ $$tf(t, d) = \frac{(K_1 + 1) * n_{t,d}}{k_1 * (1 - b + b * \frac{L_d}{L_{ave}}) 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Чем больше признаков, тем больше мы будем тратить времени на оценку и подбор параметров.</p>
+<p>Чем больше признаков, тем больше мы будем тратить времени на оценку и подбор гиперпараметров.</p>
 
 </div>
 </div>
@@ -14093,13 +14093,12 @@ $$h : F \rightarrow \{0, \dots, 2^b - 1\}$$<p>С помощью <code>--b</code>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Optimization">Optimization<a class="anchor-link" href="#Optimization">&#182;</a></h2><p>Может использовать <code>SGD</code> или <code>L-BFGS</code></p>
+<h2 id="Optimization">Optimization<a class="anchor-link" href="#Optimization">&#182;</a></h2><p>Может использовать <code>SGD</code> или <code>L-BFGS</code> (квази-ньютоновский метод второго порядка, подробнее про работу <a href="http://aria42.com/blog/2014/12/understanding-lbfgs">оптимизации</a>)</p>
 <ul>
 <li><code>SGD</code> по умолчанию. Почти всегда необходимо несколько проходов по данным.</li>
 <li><code>L-BFGS</code> включается с помощью <code>--bfgs</code>, работает гораздо медленнее и только для выборок небольшого размера</li>
 <li>Количество проходов для <code>SGD</code> задаётся с помощью параметра <code>--passes</code></li>
 </ul>
-<p><code>L-BFGS</code> квази-ньютоновский метод второго порядка, подробнее про работу <a href="http://aria42.com/blog/2014/12/understanding-lbfgs">оптимизации</a></p>
 
 </div>
 </div>
@@ -14158,7 +14157,7 @@ $$\text{progressive error} = \frac{e_1 + e_2 + ... + e_s}{s}$$<p>$e_i$ — loss 
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -14171,7 +14170,7 @@ $$\text{progressive error} = \frac{e_1 + e_2 + ... + e_s}{s}$$<p>$e_i$ — loss 
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -14564,6 +14563,20 @@ loss     last          counter         weight    label  predict features
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1077;&#1077;-&#1087;&#1088;&#1086;-VW">&#1055;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1077;&#1077; &#1087;&#1088;&#1086; VW<a class="anchor-link" href="#&#1055;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1077;&#1077;-&#1087;&#1088;&#1086;-VW">&#182;</a></h2><ul>
+<li><a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/">Вики</a></li>
+<li>Раздел <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial">Tutorial</a>  на вики</li>
+<li><a href="https://github.com/JohnLangford/vowpal_wabbit/wiki/v7.0_tutorial.pdf">Pdf</a> с описанием большинства возможностей VW</li>
+</ul>
+
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
